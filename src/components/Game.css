@@ -1,0 +1,119 @@
+.game {
+    animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-2em)
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) 
+    }
+}
+
+.board {
+    margin: 0 1em;
+}
+
+.navigation-container-transparent {
+    background-color: transparent;
+    margin: 0 2px;
+    position: relative;
+    width: 20%;
+    vertical-align: middle;
+}
+
+.navigation-container-visible {
+    background-color: rgb(38, 41, 61);
+    border-radius: 20px;
+    padding: 1em 1em 1em;
+    box-sizing: border-box;
+}
+
+.buttons-container {
+    bottom: 0px;
+    width: 100%;
+    justify-content: center;
+}
+
+.restart {
+    background-color: rgb(87, 89, 107);
+    border-radius: 10px;
+    height: 60px;
+    width: 100%;
+    /* box-sizing: border-box; */
+    margin-bottom: .5em;
+    text-align: center;
+    font-size: 2vw;
+    font-weight: 12px;
+    color: white;
+}
+
+.move-navigations-container {
+    display: flex;
+    justify-content: space-between;
+    /* margin: 0 20px 0px 20px; */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.move-navigation {
+    font-size: 1vw;
+    width: 40%;
+    height: 50px;
+}
+
+.log-container {
+    background-color: rgb(57, 59, 77);
+    border-radius: 10px;
+    margin-top: 2em;
+    height: auto;
+    font-size: 1vw;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.log-container h1 {
+    text-align: center; 
+    color: red;
+    margin: 0;
+    animation: none;
+}
+
+@media (max-width: 730px) {
+    .board {
+        display: flex;
+    }
+    
+    .navigation-container-transparent {
+        padding: 1% 20%;
+        box-sizing: border-box;
+        position: relative;
+        width: 100%;    
+    }
+
+    .navigation-container-visible {
+        padding: 1em 2em 1em;
+    }
+
+    .restart {
+        font-size: 2rem;
+        height: auto;
+    }
+
+    .move-navigations-container button {
+        font-size: 2vh;
+    }
+
+    .game h1 {
+        font-size: 5vh;
+    }
+}
+
+@media (max-width: 620px) {
+    .board {
+        margin: 0;
+    }
+}
