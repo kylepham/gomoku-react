@@ -40,23 +40,29 @@ export default function Game() {
 
     const [aiWorker] = useWorker(ai_move); // Web Worker
     const aiTurn = async (b) => {
-        const [x, y] = await aiWorker(
-            b.map((row) => row.map((col) => col.value)),
-            boardDimension,
-            ai,
-            player
-        );
-        b = b.map((row) =>
-            row.map((col) => ({ lastMove: false, value: col.value }))
-        );
-        b[x][y].lastMove = true;
-        b[x][y].value = ai;
-        setIsPlayerTurn(!isPlayerTurn);
-
-        let t = handleWinner(b);
-        setBoard(b);
-        setHistory([...history.splice(0, step + 1), t[0]]);
-        setStep(step + 1);
+        try {
+            const [x, y] = await aiWorker(
+                b.map((row) => row.map((col) => col.value)),
+                boardDimension,
+                ai,
+                player
+            );
+            b = b.map((row) =>
+                row.map((col) => ({ lastMove: false, value: col.value }))
+            );
+            b[x][y].lastMove = true;
+            b[x][y].value = ai;
+            setIsPlayerTurn(!isPlayerTurn);
+    
+            let t = handleWinner(b);
+            setBoard(b);
+            setHistory([...history.splice(0, step + 1), t[0]]);
+            setStep(step + 1);
+        } catch (e)
+        {
+            console.log(e);
+        }
+        
     };
 
     if (aiThinking) {
